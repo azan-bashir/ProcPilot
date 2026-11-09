@@ -21,11 +21,6 @@ get_process_info() #Syntax: get_process_info <Process-PID>
 
 }
 
-#For testing purposes:
-#sleep 5 &
-#get_process_info $!
-#echo "$PP_PROCESS_PID $PP_PROCESS_CPU $PP_PROCESS_MEM $PP_PROCESS_STATUS $PP_PROCESS_COMMAND"
-
 PP_RUNNING_COUNT=""
 PP_COMPLETED_COUNT=""
 PP_FAILED_COUNT=""
@@ -38,5 +33,4 @@ get_process_counts()
     PP_FAILED_COUNT=""
     PP_STOPPED_COUNT=""
 }
-
 
