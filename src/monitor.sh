@@ -33,5 +33,10 @@ PP_STOPPED_COUNT=""
 
 get_process_counts()
 {
-
+    PP_RUNNING_COUNT="$(jobs -r | wc -l)"
+    PP_COMPLETED_COUNT="$(jobs -s | wc -l)"
+    PP_FAILED_COUNT=""
+    PP_STOPPED_COUNT=""
 }
+
+
