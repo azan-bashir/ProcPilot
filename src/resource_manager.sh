@@ -43,3 +43,21 @@ get_system_resources()
     PP_SYSTEM_RAM_PERCENT=$(( PP_SYSTEM_RAM_USED * 100 / PP_SYSTEM_RAM_TOTAL ))
 }
 
+PP_RESOURCE_WARNING=""
+
+check_resources()
+{
+    local max_cpu max_ram
+    max_cpu=75
+    max_ram=80
+
+    get_system_resources
+
+    if (( PP_SYSTEM_RAM_PERCENT > max_ram )) || (( PP_SYSTEM_CPU > max_cpu ))
+    then
+        PP_RESOURCE_WARNING=1
+    else
+        PP_RESOURCE_WARNING=0
+    fi
+}
+
