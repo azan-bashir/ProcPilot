@@ -1,0 +1,5 @@
+# Normalise line endings so Bash scripts are always checked out with LF.
+* text=auto
+*.sh text eol=lf
+*.conf text eol=lf
+*.md text eol=lf

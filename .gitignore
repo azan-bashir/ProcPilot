@@ -1,0 +1,5 @@
+# Runtime output produced by ProcPilot. The tracked .gitkeep placeholders in
+# logs/processes/ and state/processes/ are intentionally not ignored.
+logs/*.log
+logs/processes/*.log
+state/processes/*/
