@@ -1,0 +1,5 @@
+# Ignore generated process logs
+/logs/processes/
+
+# Ignore generated process state data
+/state/processes/
