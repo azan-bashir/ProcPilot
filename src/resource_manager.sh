@@ -43,13 +43,14 @@ get_system_resources()
     PP_SYSTEM_RAM_PERCENT=$(( PP_SYSTEM_RAM_USED * 100 / PP_SYSTEM_RAM_TOTAL ))
 }
 
+source ./config.sh
 PP_RESOURCE_WARNING=""
 
 check_resources()
 {
     local max_cpu max_ram
-    max_cpu=75
-    max_ram=80
+    max_cpu="$PP_CPU_WARNING_THRESHOLD"
+    max_ram="$PP_RAM_WARNING_THRESHOLD"
 
     get_system_resources
 

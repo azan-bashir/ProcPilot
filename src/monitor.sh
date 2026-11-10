@@ -1,9 +1,18 @@
 #!/bin/bash
 
-#refresh_process_state()
-#{
-#
-#}
+refresh_process_state()
+{
+    local PID=$1 a b
+
+    a=$(kill -0 "$PID")
+    if (( a==0 )); then
+      wait "$PID"
+      b=$?
+      return "$b"
+    fi
+
+    return 1
+}
 
 PP_PROCESS_PID=""
 PP_PROCESS_CPU=""
