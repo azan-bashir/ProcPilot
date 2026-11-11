@@ -255,9 +255,11 @@ check_cli "run without a command fails" 1 "run requires a command" 'main run'
 check_cli "list with an argument fails" 1 "list does not accept arguments" 'main list extra'
 check_cli "stop without a PID fails" 1 "stop requires a process PID" 'main stop'
 check_cli "stop with a non-numeric PID fails" 1 "invalid PID" 'main stop abc'
+check_cli "stop with PID 0 fails" 1 "invalid PID" 'main stop 0'
 check_cli "stop with two PIDs fails" 1 "exactly one PID" 'main stop 1 2'
 check_cli "dashboard with an argument fails" 1 "dashboard does not accept arguments" 'main dashboard now'
 check_cli "logs with a non-numeric count fails" 1 "invalid NUMBER" 'main logs ten'
+check_cli "logs with NUMBER 0 fails" 1 "invalid NUMBER" 'main logs 0'
 check_cli "logs with too many arguments fails" 1 "at most one NUMBER" 'main logs 1 2'
 
 # A rejected command must never call the module function behind it.
