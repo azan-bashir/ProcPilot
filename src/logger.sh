@@ -130,6 +130,10 @@ show_logs() {
         printf 'logs: PP_APP_LOG is not set (was load_config called?)\n' >&2
         return 2
     fi
+    if [ ! -e "$PP_APP_LOG" ]; then
+        printf 'No log entries yet.\n'
+        return 0
+    fi
 
     if [ ! -r "$PP_APP_LOG" ]; then
         printf 'logs: cannot read "%s"\n' "$PP_APP_LOG" >&2
