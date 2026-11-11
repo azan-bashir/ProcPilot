@@ -89,7 +89,7 @@ main() {
                 printf 'usage: procpilot.sh stop PID\n' >&2
                 return 1
             fi
-            if [[ ! $1 =~ ^[0-9]+$ ]]; then
+            if [[ ! $1 =~ ^[0-9]+$ ]] || ((10#$1 < 1)); then
                 _cli_error "invalid PID '$1': expected a positive integer"
                 return 1
             fi
@@ -109,9 +109,11 @@ main() {
                 printf 'usage: procpilot.sh logs [NUMBER]\n' >&2
                 return 1
             fi
-            if (($# == 1)) && [[ ! $1 =~ ^[0-9]+$ ]]; then
-                _cli_error "invalid NUMBER '$1': expected a positive integer"
-                return 1
+            if (($# == 1)); then
+                 if [[ ! $1 =~ ^[0-9]+$ ]] || ((10#$1 < 1)); then
+                     _cli_error "invalid NUMBER '$1': expected a positive integer"
+                     return 1
+                 fi
             fi
             show_logs "$@"
             ;;
