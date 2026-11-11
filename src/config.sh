@@ -138,7 +138,7 @@ validate_config() {
     if ! _config_is_uint "${PP_CPU_WARNING_THRESHOLD-}"; then
         _config_error "PP_CPU_WARNING_THRESHOLD must be an integer between 1 and 100 (got '${PP_CPU_WARNING_THRESHOLD-}')"
         status=1
-    elif ((PP_CPU_WARNING_THRESHOLD < 1 || PP_CPU_WARNING_THRESHOLD > 100)); then
+    elif ((10#$PP_CPU_WARNING_THRESHOLD < 1 || 10#$PP_CPU_WARNING_THRESHOLD > 100)); then
         _config_error "PP_CPU_WARNING_THRESHOLD must be between 1 and 100 (got $PP_CPU_WARNING_THRESHOLD)"
         status=1
     fi
@@ -146,7 +146,7 @@ validate_config() {
     if ! _config_is_uint "${PP_RAM_WARNING_THRESHOLD-}"; then
         _config_error "PP_RAM_WARNING_THRESHOLD must be an integer between 1 and 100 (got '${PP_RAM_WARNING_THRESHOLD-}')"
         status=1
-    elif ((PP_RAM_WARNING_THRESHOLD < 1 || PP_RAM_WARNING_THRESHOLD > 100)); then
+    elif ((10#$PP_RAM_WARNING_THRESHOLD < 1 || 10#$PP_RAM_WARNING_THRESHOLD > 100)); then
         _config_error "PP_RAM_WARNING_THRESHOLD must be between 1 and 100 (got $PP_RAM_WARNING_THRESHOLD)"
         status=1
     fi
@@ -154,7 +154,7 @@ validate_config() {
     if ! _config_is_uint "${PP_REFRESH_INTERVAL-}"; then
         _config_error "PP_REFRESH_INTERVAL must be a positive integer number of seconds (got '${PP_REFRESH_INTERVAL-}')"
         status=1
-    elif ((PP_REFRESH_INTERVAL < 1)); then
+    elif ((10#$PP_REFRESH_INTERVAL < 1)); then
         _config_error "PP_REFRESH_INTERVAL must be at least 1 second (got $PP_REFRESH_INTERVAL)"
         status=1
     fi
