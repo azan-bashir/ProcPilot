@@ -53,12 +53,14 @@ check_resources()
     max_ram="$PP_RAM_WARNING_THRESHOLD"
 
     get_system_resources
+    PP_RESOURCE_WARNING=""
 
-    if (( PP_SYSTEM_RAM_PERCENT > max_ram )) || (( PP_SYSTEM_CPU > max_cpu ))
-    then
-        PP_RESOURCE_WARNING=1
-    else
-        PP_RESOURCE_WARNING=0
+    if (( PP_SYSTEM_RAM_PERCENT > max_ram )); then
+      PP_RESOURCE_WARNING+="RAM almost full. "
+    fi
+
+    if (( PP_SYSTEM_CPU > max_cpu )); then
+      PP_RESOURCE_WARNING+="CPU almost full. "
     fi
 }
 
