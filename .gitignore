@@ -1,5 +1,6 @@
 # Ignore generated process logs
-/logs/processes/
+/logs/*.log
+/logs/processes/*.log
 
-# Ignore generated process state data
-/state/processes/
+# Ignore generated process state data while preserving tracked .gitkeep placeholders
+/state/processes/*/
