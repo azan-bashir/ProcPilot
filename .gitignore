@@ -1,5 +1,6 @@
-# Runtime output produced by ProcPilot. The tracked .gitkeep placeholders in
-# logs/processes/ and state/processes/ are intentionally not ignored.
-logs/*.log
-logs/processes/*.log
-state/processes/*/
+# Ignore generated process logs
+/logs/*.log
+/logs/processes/*.log
+
+# Ignore generated process state data while preserving tracked .gitkeep placeholders
+/state/processes/*/
